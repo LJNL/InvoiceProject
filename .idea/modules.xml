@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InvoiceIdentity.iml" filepath="$PROJECT_DIR$/InvoiceIdentity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InvoiceProject.iml" filepath="$PROJECT_DIR$/InvoiceProject.iml" />
     </modules>
   </component>
 </project>

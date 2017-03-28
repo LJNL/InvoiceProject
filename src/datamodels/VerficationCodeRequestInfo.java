@@ -6,38 +6,49 @@ package datamodels;
 public class VerficationCodeRequestInfo {
     private String callback;
     private String invoiceCode;
-    private double rand;
+    private String rand;
     private long timestamps;
+
+    public VerficationCodeRequestInfo(String invoiceCode) {
+        this.invoiceCode = invoiceCode;
+        setTimestamps();
+        setRand();
+    }
 
     public String getCallback() {
         return callback;
     }
 
-    public void setCallback(String callback) {
-        this.callback = callback;
+    public VerficationCodeRequestInfo setCallback() {
+        this.callback = "callback" + timestamps;
+        return this;
     }
 
     public String getInvoiceCode() {
         return invoiceCode;
     }
 
-    public void setInvoiceCode(String invoiceCode) {
+    public VerficationCodeRequestInfo setInvoiceCode(String invoiceCode) {
         this.invoiceCode = invoiceCode;
+        return this;
     }
 
-    public double getRand() {
+    public String getRand() {
         return rand;
     }
 
-    public void setRand(double rand) {
-        rand=Math.random();
+    public VerficationCodeRequestInfo setRand() {
+        rand = Double.toString(Math.random());
+        return this;
     }
 
     public long getTimestamps() {
         return timestamps;
     }
 
-    public void setTimestamps(long timestamps) {
+    public VerficationCodeRequestInfo setTimestamps() {
         timestamps=System.currentTimeMillis();
+        setCallback();
+        return this;
     }
 }

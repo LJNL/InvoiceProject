@@ -1,11 +1,8 @@
 package invoiceInterface;
 
-import com.sun.org.apache.xerces.internal.util.URI;
 import datamodels.CityInfo;
-import org.apache.commons.logging.Log;
-import org.apache.http.client.utils.URIBuilder;
 
-import java.util.HashMap;
+import java.net.URI;
 
 import static util.LogRecord.logger;
 
@@ -52,12 +49,21 @@ public interface IProvinceURL {
             new CityInfo("6500", "新疆", "https://fpcy.xj-n-tax.gov.cn:443")
     };
 
-    URI getProvinceURL(String code);
+    URI getProvinceURL();
+
     default String getHostAddress(String code) {
+        String provinceCode = "";
+        if (code.length() == 12) {
+            provinceCode = code.substring(1, 5);
+        } else {
+            provinceCode = code.substring(0, 4);
+        }
+        if (provinceCode != "2102" && provinceCode != "3302" && provinceCode != "3502" && provinceCode != "3702" && provinceCode != "4403") {
+            provinceCode = provinceCode.substring(0, 2) + "00";
+        }
         for (CityInfo cityinfo :
                 CITY_INFOS) {
-            if(cityinfo.getCode()==code)
-            {
+            if (cityinfo.getCode() == provinceCode) {
                 return cityinfo.getUrl();
             }
         }

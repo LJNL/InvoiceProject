@@ -7,6 +7,11 @@ public class VerficationCodeResult {
     private VerficationCodeInfo verficationCodeInfo;
     private String result;
 
+    public VerficationCodeResult(VerficationCodeInfo verficationCodeInfo, String result) {
+        this.verficationCodeInfo = verficationCodeInfo;
+        this.result = result;
+    }
+
     public VerficationCodeInfo getVerficationCodeInfo() {
         return verficationCodeInfo;
     }

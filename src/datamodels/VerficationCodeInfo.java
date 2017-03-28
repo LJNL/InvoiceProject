@@ -7,49 +7,70 @@ import java.time.LocalDateTime;
  * Created by mac on 2017/3/27.
  */
 public class VerficationCodeInfo {
-    private VerficationCodeInfo verficationCodeInfo;
+    private VerficationCodeRequestInfo verficationCodeRequestInfo;
+
     private String imageBase64;
     private LocalDateTime localDateTime;
+    private String time;
     private String index;
     private String sign;
 
-    public VerficationCodeInfo getVerficationCodeInfo() {
-        return verficationCodeInfo;
+    public VerficationCodeInfo(VerficationCodeRequestInfo verficationCodeRequestInfo) {
+        this.verficationCodeRequestInfo = verficationCodeRequestInfo;
     }
 
-    public void setVerficationCodeInfo(VerficationCodeInfo verficationCodeInfo) {
-        this.verficationCodeInfo = verficationCodeInfo;
+    public String getTime() {
+        return time;
+    }
+
+    public VerficationCodeInfo setTime(String time) {
+        this.time = time;
+        return this;
+    }
+
+    public VerficationCodeRequestInfo getVerficationCodeRequestInfo() {
+        return verficationCodeRequestInfo;
+    }
+
+    public VerficationCodeInfo setVerficationCodeRequestInfo(VerficationCodeRequestInfo verficationCodeRequestInfo) {
+        this.verficationCodeRequestInfo = verficationCodeRequestInfo;
+        return this;
     }
 
     public String getImageBase64() {
         return imageBase64;
     }
 
-    public void setImageBase64(String imageBase64) {
+    public VerficationCodeInfo setImageBase64(String imageBase64) {
         this.imageBase64 = imageBase64;
+        return this;
     }
 
     public LocalDateTime getLocalDateTime() {
         return localDateTime;
     }
 
-    public void setLocalDateTime(LocalDateTime localDateTime) {
+    public VerficationCodeInfo setLocalDateTime(LocalDateTime localDateTime) {
         this.localDateTime = localDateTime;
+        return this;
     }
 
     public String getIndex() {
         return index;
     }
 
-    public void setIndex(String index) {
+    public VerficationCodeInfo setIndex(String index) {
         this.index = index;
+        return this;
     }
 
     public String getSign() {
         return sign;
     }
 
-    public void setSign(String sign) {
+    public VerficationCodeInfo setSign(String sign) {
         this.sign = sign;
+        return this;
     }
+
 }
