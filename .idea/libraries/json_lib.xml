@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="json-lib">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Public/json-lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Public/json-lib" recursive="false" />
+  </library>
+</component>

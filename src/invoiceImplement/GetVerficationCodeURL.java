@@ -18,6 +18,7 @@ public class GetVerficationCodeURL implements IProvinceURL {
     final String CALLBACK = "callback";
     final String FPDM = "fpdm";
     final String RAND = "r";
+    final String TIMESTAMP = "_";
     private VerficationCodeRequestInfo verficationCodeRequestInfo;
 
     public GetVerficationCodeURL(VerficationCodeRequestInfo verficationCodeRequestInfo) {
@@ -42,12 +43,15 @@ public class GetVerficationCodeURL implements IProvinceURL {
                     .setParameter(CALLBACK, verficationCodeRequestInfo.getCallback())
                     .setParameter(FPDM, verficationCodeRequestInfo.getInvoiceCode())
                     .setParameter(RAND, verficationCodeRequestInfo.getRand())
+                    .setParameter(TIMESTAMP, String.valueOf(verficationCodeRequestInfo.getTimestamps()))
                     .build();
 
-            logger.fine("[fine]============URL is " + url.toString());
         } catch (URISyntaxException e) {
+            logger.warning("[warning]==========URL SYNTAX FAILED");
+            uri = null;
             e.printStackTrace();
         }
+        logger.info("[INFO]==========URL IS " + uri.toString());
         return uri;
     }
 }

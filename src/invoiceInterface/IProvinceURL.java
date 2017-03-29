@@ -58,16 +58,17 @@ public interface IProvinceURL {
         } else {
             provinceCode = code.substring(0, 4);
         }
-        if (provinceCode != "2102" && provinceCode != "3302" && provinceCode != "3502" && provinceCode != "3702" && provinceCode != "4403") {
+        if (!provinceCode.equals("2102") && !provinceCode.equals("3302") && !provinceCode.equals("3502") && !provinceCode.equals("3702") && !provinceCode.equals("4403")) {
             provinceCode = provinceCode.substring(0, 2) + "00";
         }
+        logger.info("[INFO]==========city code is " + provinceCode);
         for (CityInfo cityinfo :
                 CITY_INFOS) {
-            if (cityinfo.getCode() == provinceCode) {
+            if (cityinfo.getCode().equals(provinceCode)) {
                 return cityinfo.getUrl();
             }
         }
-        logger.warning("[warning]==========no city's code match");
+        logger.warning("[warning]==========no city's code match " + provinceCode);
         return "";
     }
 }

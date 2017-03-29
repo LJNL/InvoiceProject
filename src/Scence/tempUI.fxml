@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.112"
+      fx:controller="Scence.FXMLController">
+
+    <children>
+        <VBox prefHeight="335.0" prefWidth="400.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="120.0"
+                               text="发票代码">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </Label>
+                        <TextField fx:id="InvoiceCodeTf" alignment="CENTER" prefHeight="40.0" prefWidth="220.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </TextField>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="120.0"
+                               text="发票号码" textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </Label>
+                        <TextField fx:id="InvoiceNumberTf" alignment="CENTER" prefHeight="40.0" prefWidth="220.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </TextField>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="120.0"
+                               text="开票日期" textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </Label>
+                        <TextField fx:id="InvoiceDateTf" alignment="CENTER" prefHeight="40.0" prefWidth="220.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </TextField>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="120.0" text="校验码"
+                               textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </Label>
+                        <TextField fx:id="InvoiceChecksumTf" alignment="CENTER" prefHeight="40.0" prefWidth="220.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </TextField>
+                    </children>
+                </HBox>
+                <HBox prefHeight="82.0" prefWidth="400.0">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="120.0" text="验证码"
+                               textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </Label>
+                        <TextField fx:id="VerficationCodeTf" alignment="CENTER" prefHeight="40.0" prefWidth="220.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </TextField>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <ImageView fx:id="VerficationCodeImg" fitHeight="50.0" fitWidth="120.0" layoutX="210.0" layoutY="372.0"
+                   onKeyReleased="#freshVercifationCodeHandler" pickOnBounds="true" preserveRatio="true"/>
+        <Button fx:id="FreshBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="372.0"
+                mnemonicParsing="false" onMouseClicked="#requestVercifationCodeHandler" prefHeight="50.0"
+                prefWidth="120.0" text="刷新/TEST">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </Button>
+        <Separator layoutY="439.0" prefHeight="9.0" prefWidth="400.0"/>
+        <Button fx:id="CommitBtn" layoutX="239.0" layoutY="460.0" mnemonicParsing="false"
+                onMouseClicked="#commitHandler" prefHeight="30.0" prefWidth="60.0" text="提交"/>
+        <Button fx:id="CancelBtn" layoutX="324.0" layoutY="460.0" mnemonicParsing="false"
+                onMouseClicked="#cancelHandler" prefHeight="30.0" prefWidth="60.0" text="取消"/>
+        <Label layoutX="51.0" layoutY="468.0" text="发票验证@copyleft"/>
+    </children>
+</Pane>

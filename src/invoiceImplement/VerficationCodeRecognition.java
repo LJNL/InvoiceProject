@@ -6,7 +6,8 @@ import invoiceInterface.IGetForImage;
 import invoiceInterface.IVerficationCodeResult;
 import sun.misc.BASE64Decoder;
 
-import javax.swing.*;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 import static util.LogRecord.logger;
 
@@ -22,17 +23,17 @@ public class VerficationCodeRecognition implements IVerficationCodeResult, IGetF
     }
 
     @Override
-    public ImageIcon getForImage(VerficationCodeInfo verficationCodeInfo) {
+    public byte[] getForImage(VerficationCodeInfo verficationCodeInfo) {
 
         if (errorHandler(verficationCodeInfo)) {
             return null;
         }
-        selectDisplay(verficationCodeInfo);
+        // selectDisplay(verficationCodeInfo);
 
         return imageDecode(verficationCodeInfo);
     }
 
-    private String selectDisplay(VerficationCodeInfo verficationCodeInfo) {
+    public String selectDisplay(VerficationCodeInfo verficationCodeInfo) {
         String display;
         String sign = verficationCodeInfo.getSign();
         if (sign == "00") {
@@ -46,6 +47,7 @@ public class VerficationCodeRecognition implements IVerficationCodeResult, IGetF
         } else {
             display = "";
         }
+        logger.info("[INFO]========== ==========" + display);
         return display;
     }
 
@@ -68,34 +70,36 @@ public class VerficationCodeRecognition implements IVerficationCodeResult, IGetF
         } else if (errorCode == "") {
 
         } else {
+            logger.info("[INFO]==========" + "GET IMAGE CODE");
             return false; //ok
         }
+
         return true;
     }
 
-    private ImageIcon imageDecode(VerficationCodeInfo verficationCodeInfo) {
+    private byte[] imageDecode(VerficationCodeInfo verficationCodeInfo) {
         String imgStr = verficationCodeInfo.getImageBase64();
         BASE64Decoder decoder = new BASE64Decoder();
         try {
             //Base64解码
             byte[] b = decoder.decodeBuffer(imgStr);
-            for (int i = 0; i < b.length; ++i) {
-                if (b[i] < 0) {//调整异常数据
-                    b[i] += 256;
-                }
-            }
-
-//                String imgFilePath = "d://222.jpg";//新生成的图片
-//                OutputStream out = new FileOutputStream(imgFilePath);
-//                out.write(b);
-//                out.flush();
-//                out.close();
-            ImageIcon ic = new ImageIcon(b);
-            return ic;
+//            for (int i = 0; i < b.length; ++i) {
+//                if (b[i] < 0) {//调整异常数据
+//                    b[i] += 256;
+//                }
+//            }
+            logger.info("[INFO]==========" + "GET IMAGE CODE");
+            String imgFilePath = "/home/local/SPREADTRUM/jiannan.liu/Invoice/InvoiceProject/out/222.png";//新生成的图片
+            OutputStream out = new FileOutputStream(imgFilePath);
+            out.write(b);
+            out.flush();
+            out.close();
+            return b;
         } catch (Exception e) {
-            logger.warning("[warning]==========IMAGE FAILED");
+            logger.warning("[warning]========== ==========" + "IMAGE DECODE FAILED");
             e.printStackTrace();
             return null;
         }
+
     }
 }
