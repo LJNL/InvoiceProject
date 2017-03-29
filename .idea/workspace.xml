@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4b1e57b-6fd7-4d58-9742-2966e1c12d7b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/InvoiceProject.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/json_lib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Scence/FXMLController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Scence/tempUI.fxml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/javax_json_api_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="f4b1e57b-6fd7-4d58-9742-2966e1c12d7b" name="Default" comment="Can receive Verfication code from any Province&#10;Verification code Ok">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InvoiceProject.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/TestController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/testUI.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InvoiceGraph.java" afterPath="$PROJECT_DIR$/src/InvoiceGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scence.java" afterPath="$PROJECT_DIR$/src/Scence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/invoiceImplement/GetVerficationCodeURL.java" afterPath="$PROJECT_DIR$/src/invoiceImplement/GetVerficationCodeURL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/invoiceImplement/VerficationCodeHandler.java" afterPath="$PROJECT_DIR$/src/invoiceImplement/VerficationCodeHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/invoiceImplement/VerficationCodeRecognition.java" afterPath="$PROJECT_DIR$/src/invoiceImplement/VerficationCodeRecognition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/invoiceInterface/IGetForImage.java" afterPath="$PROJECT_DIR$/src/invoiceInterface/IGetForImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/invoiceInterface/IProvinceURL.java" afterPath="$PROJECT_DIR$/src/invoiceInterface/IProvinceURL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/HttpManager.java" afterPath="$PROJECT_DIR$/src/util/HttpManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LogRecord.java" afterPath="$PROJECT_DIR$/src/util/LogRecord.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -477,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490701961094</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Can receive Verfication code from any Province&#10;Verification code Ok">
+      <created>1490785335251</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1490785335251</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
