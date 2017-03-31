@@ -4,7 +4,7 @@
 //import datamodels.VerficationCodeResult;
 //import invoiceImplement.GetVerficationCodeURL;
 //import invoiceImplement.VerficationCodeHandler;
-//import invoiceImplement.VerficationCodeRecognition;
+//import invoiceImplement.VerficationCodeParse;
 //import invoiceInterface.IProvinceURL;
 //import org.apache.http.client.ResponseHandler;
 //import util.HttpManager;
@@ -17,7 +17,7 @@
 //    public static void main(String[] args) {
 //        // 1.user input a Invoice
 //
-//        InvoiceInfo inv = new InvoiceInfo("4403161320", "88888888", "20170301", "666666");
+//        InvoiceInputInfo inv = new InvoiceInputInfo("4403161320", "88888888", "20170301", "666666");
 //
 //        //2.get Verification code image
 //        //(1) use httpmanager
@@ -36,7 +36,7 @@
 //
 //        //(5)IGetForImage
 //
-//        VerficationCodeRecognition recognition = new VerficationCodeRecognition();
+//        VerficationCodeParse recognition = new VerficationCodeParse();
 //
 //
 //        //(6) 用户输入

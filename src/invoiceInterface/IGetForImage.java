@@ -7,4 +7,6 @@ import datamodels.VerficationCodeInfo;
  */
 public interface IGetForImage {
     byte[] getForImage(VerficationCodeInfo verficationCodeInfo);
+
+    String getForImageSelectColor(VerficationCodeInfo verficationCodeInfo);
 }
