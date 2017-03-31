@@ -31,7 +31,7 @@ public class InvoiceRequestInfo {
     }
 
     public InvoiceRequestInfo setCallback() {
-        this.callback = "callback" + timestamps;
+        this.callback = "jQuery" + timestamps;
         return this;
     }
 

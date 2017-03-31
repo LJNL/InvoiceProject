@@ -3,6 +3,9 @@ package datamodels;
 /**
  * Created by SPREADTRUM\jiannan.liu on 17-3-31.
  */
+
+
+//由于意义不是很明确暂时 使用key来表示,以后可以refactor
 public class InvoiceInfo {
     //11 key
     private InvoiceRequestInfo invoiceRequestInfo;

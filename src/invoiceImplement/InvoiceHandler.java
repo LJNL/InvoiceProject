@@ -68,7 +68,7 @@ public class InvoiceHandler implements ResponseHandler<InvoiceInfo>, IInvoiceInf
 
             logger.info("[warning]========== entity " + contentStr);
 
-            Pattern pattern = Pattern.compile(".*(\\{.*\\}).*");
+            Pattern pattern = Pattern.compile(".*\\((\\{.*\\})\\).*");
             Matcher matcher = pattern.matcher(contentStr);
 
             if (!matcher.find()) {
@@ -89,17 +89,17 @@ public class InvoiceHandler implements ResponseHandler<InvoiceInfo>, IInvoiceInf
 
             logger.info("[INFO]==========CREATE JSON READER");
 
-            invoiceInfo.setKey1(object.getString("key1"))
-                    .setKey2(object.getString("key2"))
-                    .setKey3(object.getString("key3"))
-                    .setKey4(object.getString("key4"))
-                    .setKey5(object.getString("key5"))
-                    .setKey6(object.getString("key6"))
-                    .setKey7(object.getString("key7"))
-                    .setKey8(object.getString("key8"))
-                    .setKey9(object.getString("key9"))
-                    .setKey10(object.getString("key10"))
-                    .setKey11(object.getString("key11"));
+            invoiceInfo.setKey1((String) object.getOrDefault("key1", null))
+                    .setKey2((String) object.getOrDefault("key1", null))
+                    .setKey3((String) object.getOrDefault("key1", null))
+                    .setKey4((String) object.getOrDefault("key1", null))
+                    .setKey5((String) object.getOrDefault("key1", null))
+                    .setKey6((String) object.getOrDefault("key1", null))
+                    .setKey7((String) object.getOrDefault("key1", null))
+                    .setKey8((String) object.getOrDefault("key1", null))
+                    .setKey9((String) object.getOrDefault("key1", null))
+                    .setKey10((String) object.getOrDefault("key1", null))
+                    .setKey11((String) object.getOrDefault("key1", null));
 
 
             return invoiceInfo;

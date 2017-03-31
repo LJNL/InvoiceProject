@@ -6,6 +6,7 @@ import invoiceInterface.IGetForInvoiceType;
 import invoiceInterface.IProvinceURL;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -75,12 +76,12 @@ public class FXMLController implements Initializable, IGetForInvoiceType {
     //commit
     @FXML
     public void commitHandler(MouseEvent mouseEvent) {
+
+        logger.info("[INFO]========== COMMIT FINISHED");
         // check not null
         if (verficationCodeInfo == null)
             return;
         if (VerficationCodeTf.getText() == null)
-            return;
-        if (invoiceType == null)
             return;
         if (InvoiceNumberTf.getText() == null)
             return;
@@ -88,6 +89,8 @@ public class FXMLController implements Initializable, IGetForInvoiceType {
             return;
         if (InvoiceChecksumTf.getText() == null)
             return;
+        if (invoiceType == null)
+            invoiceType = getForInvoiceType(InvoiceCodeTf.getText());
 
 
         //1.data
@@ -117,12 +120,19 @@ public class FXMLController implements Initializable, IGetForInvoiceType {
         //(5)InvoiceResult
         InvoiceResult invoiceResult = new InvoiceParase().getInvoiceResult(invoiceInfo);
 
+
+        Alert _alert = new Alert(Alert.AlertType.INFORMATION);
+        _alert.setTitle("信息");
+        _alert.setHeaderText(invoiceResult.getSign());
+        _alert.setContentText("success");
+        _alert.show();
         logger.info("[INFO]========== COMMIT FINISHED");
     }
 
     //Verfication Code request
     @FXML
     public void requestVercifationCodeHandler(MouseEvent mouseEvent) {
+
 
         //get Verification code image
         //(1) use httpmanager

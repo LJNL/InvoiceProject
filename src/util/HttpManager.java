@@ -69,7 +69,7 @@ public class HttpManager {
         return ourInstance;
     }
 
-    private static void clientCreate() {
+    public static void clientCreate() {
         if (httpClient == null) {
             httpClient = HttpClients.custom()
                     .setSSLSocketFactory(sslsf)
@@ -78,7 +78,7 @@ public class HttpManager {
         logger.info("[INFO]==========CREATE HTTP CLIENT");
     }
 
-    private static void shutdown() throws IOException {
+    public static void shutdown() throws IOException {
         if (httpClient != null) {
             httpClient.close();
             httpClient = null;
