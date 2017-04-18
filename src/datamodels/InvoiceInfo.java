@@ -19,7 +19,7 @@ public class InvoiceInfo {
     private String key8;
     private String key9;
     private String key10;
-    private String key11;
+    private String rules;
 
     public InvoiceInfo(InvoiceRequestInfo invoiceRequestInfo) {
         this.invoiceRequestInfo = invoiceRequestInfo;
@@ -116,12 +116,12 @@ public class InvoiceInfo {
         return this;
     }
 
-    public String getKey11() {
-        return key11;
+    public String getRules() {
+        return rules;
     }
 
-    public InvoiceInfo setKey11(String key11) {
-        this.key11 = key11;
+    public InvoiceInfo setRules(String rules) {
+        this.rules = rules;
         return this;
     }
 }

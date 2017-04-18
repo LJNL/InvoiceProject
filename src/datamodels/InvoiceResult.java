@@ -6,12 +6,21 @@ package datamodels;
 public class InvoiceResult {
     private InvoiceInfo invoiceInfo;
     private String sign;
-    //暂时不管
-    private String number;
+
+    //纳税人识别号
+    private String taxpayerNumber;
 
     public InvoiceResult(String sign, InvoiceInfo invoiceInfo) {
         this.sign = sign;
         this.invoiceInfo = invoiceInfo;
+    }
+
+    public String getTaxpayerNumber() {
+        return taxpayerNumber;
+    }
+
+    public void setTaxpayerNumber(String taxpayerNumber) {
+        this.taxpayerNumber = taxpayerNumber;
     }
 
     public InvoiceInfo getInvoiceInfo() {
@@ -29,6 +38,4 @@ public class InvoiceResult {
     public void setSign(String sign) {
         this.sign = sign;
     }
-
-
 }

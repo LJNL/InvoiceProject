@@ -90,16 +90,16 @@ public class InvoiceHandler implements ResponseHandler<InvoiceInfo>, IInvoiceInf
             logger.info("[INFO]==========CREATE JSON READER");
 
             invoiceInfo.setKey1((String) object.getOrDefault("key1", null))
-                    .setKey2((String) object.getOrDefault("key1", null))
-                    .setKey3((String) object.getOrDefault("key1", null))
-                    .setKey4((String) object.getOrDefault("key1", null))
-                    .setKey5((String) object.getOrDefault("key1", null))
-                    .setKey6((String) object.getOrDefault("key1", null))
-                    .setKey7((String) object.getOrDefault("key1", null))
-                    .setKey8((String) object.getOrDefault("key1", null))
-                    .setKey9((String) object.getOrDefault("key1", null))
-                    .setKey10((String) object.getOrDefault("key1", null))
-                    .setKey11((String) object.getOrDefault("key1", null));
+                    .setKey2((String) object.getOrDefault("key2", null))
+                    .setKey3((String) object.getOrDefault("key3", null))
+                    .setKey4((String) object.getOrDefault("key4", null))
+                    .setKey5((String) object.getOrDefault("key5", null))
+                    .setKey6((String) object.getOrDefault("key6", null))
+                    .setKey7((String) object.getOrDefault("key7", null))
+                    .setKey8((String) object.getOrDefault("key8", null))
+                    .setKey9((String) object.getOrDefault("key9", null))
+                    .setKey10((String) object.getOrDefault("key10", null))
+                    .setRules((String) object.getOrDefault("key11", null));
 
 
             return invoiceInfo;

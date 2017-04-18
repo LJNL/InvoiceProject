@@ -2,7 +2,12 @@ package invoiceImplement;
 
 import datamodels.InvoiceInfo;
 import datamodels.InvoiceResult;
+import invoiceInterface.IGetRuleURL;
 import invoiceInterface.IInvoiceResult;
+import org.apache.http.client.ResponseHandler;
+import util.HttpManager;
+
+import java.net.URI;
 
 import static util.LogRecord.logger;
 
@@ -13,11 +18,97 @@ public class InvoiceParase implements IInvoiceResult {
     public InvoiceParase() {
     }
 
+
     @Override
-
-
     public InvoiceResult getInvoiceResult(InvoiceInfo invoiceInfo) {
+        String sign = signResult(invoiceInfo);
+        InvoiceResult result = new InvoiceResult(sign, invoiceInfo);
 
+        //成功则进行纳税人识别号的获取.
+        if (sign.equals("001")) {
+
+            String taxPayerCode = null;
+            taxPayerCode = taxPayerCodePaser(invoiceInfo);
+            result.setTaxpayerNumber(taxPayerCode);
+
+            logger.info("[INFO]========== taxpayercode is " + taxPayerCode);
+            return result;
+        }
+
+        return result;
+    }
+
+
+    private String[] getRule(InvoiceInfo invoiceInfo) {
+        //HTTP GET
+        //(1) use http manager
+        HttpManager httpManager = HttpManager.getInstance();
+        //(2)get URL
+        IGetRuleURL ruleURL = new GetRuleURL();
+        URI uri = ruleURL.getRuleURL(invoiceInfo);
+
+        if (uri == null) {
+            logger.warning("[warning]==========uri null");
+            return null;
+        }
+
+        //(3)make response handler
+        ResponseHandler<String[]> rs = new RuleHandler();
+
+        //(4)exec http
+        String[] rule = httpManager.httpProcess(uri, rs);
+
+        return rule;
+    }
+
+
+    private String taxPayerCodePaser(InvoiceInfo invoiceInfo) {
+
+        String[] rule = getRule(invoiceInfo);
+        if (rule == null) {
+            return null;
+        }
+        logger.info("[INFO]========== splite is " + rule[0]);
+
+        String[] temp = invoiceInfo.getKey2().split(rule[0]);
+
+        logger.info("[INFO]========== length is " + temp.length);
+//
+//        for (String i :
+//        temp){
+//            System.out.println("//  i   ");
+//        }
+
+        String taxpayerCode = (invoiceInfo.getKey2().split(rule[0]))[4];
+
+
+        taxpayerCode.replace(rule[1].charAt(0), '%');
+        taxpayerCode.replace(rule[1].charAt(2), '#');
+
+        taxpayerCode.replace('#', rule[1].charAt(0));
+        taxpayerCode.replace('%', rule[1].charAt(2));
+
+        taxpayerCode.replace(rule[1].charAt(4), '%');
+        taxpayerCode.replace(rule[1].charAt(6), '#');
+
+        taxpayerCode.replace('#', rule[1].charAt(4));
+        taxpayerCode.replace('%', rule[1].charAt(6));
+
+
+        return taxpayerCode;
+
+    }
+
+//    private String formatPayerCode(sbh, str) {
+//        var s1 = str.split("_");
+//        for (var i = 0; i < s1.length; i++) {
+//            sbh = chgchar(sbh, s1[i]);
+//        }
+//        return sbh;
+//    }
+
+
+    private String signResult(InvoiceInfo invoiceInfo) {
         String sign = invoiceInfo.getKey1();
 
         if (sign.equals("001")) {
@@ -76,8 +167,7 @@ public class InvoiceParase implements IInvoiceResult {
 
             logger.info("[INFO]==========网络超时，请重试！");
         }
+        return sign;
 
-
-        return new InvoiceResult(sign, invoiceInfo);
     }
 }
